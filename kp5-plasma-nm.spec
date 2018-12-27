@@ -1,16 +1,16 @@
-%define		kdeplasmaver	5.11.2
+%define		kdeplasmaver	5.14.4
 %define		qtver		5.5.1
 %define		kpname		plasma-nm
 %define		kf5ver		5.39.0
 
 Summary:	plasma-nm
 Name:		kp5-%{kpname}
-Version:	5.11.2
+Version:	5.14.4
 Release:	1
 License:	LGPL v2.1+
 Group:		X11/Libraries
 Source0:	http://download.kde.org/stable/plasma/%{kdeplasmaver}/%{kpname}-%{version}.tar.xz
-# Source0-md5:	c9ec6ede05e4e4da18c18d197b43a878
+# Source0-md5:	3e1200ad29cae12d7672902164449403
 URL:		http://www.kde.org/
 BuildRequires:	Qt5Core-devel >= %{qtver}
 BuildRequires:	cmake >= 2.8.12
@@ -114,16 +114,17 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/kservices5/plasmanetworkmanagement_vpncui.desktop
 %{_datadir}/kservicetypes5/plasma-networkmanagement-vpnuiplugin.desktop
 %dir %{_datadir}/plasma/plasmoids/org.kde.plasma.networkmanagement
-%dir %{_datadir}/plasma/plasmoids/org.kde.plasma.networkmanagement/contents
-%dir %{_datadir}/plasma/plasmoids/org.kde.plasma.networkmanagement/contents/ui
-%{_datadir}/plasma/plasmoids/org.kde.plasma.networkmanagement/contents/ui/CompactRepresentation.qml
-%{_datadir}/plasma/plasmoids/org.kde.plasma.networkmanagement/contents/ui/ConnectionItem.qml
-%{_datadir}/plasma/plasmoids/org.kde.plasma.networkmanagement/contents/ui/Header.qml
-%{_datadir}/plasma/plasmoids/org.kde.plasma.networkmanagement/contents/ui/PopupDialog.qml
-%{_datadir}/plasma/plasmoids/org.kde.plasma.networkmanagement/contents/ui/SwitchButton.qml
-%{_datadir}/plasma/plasmoids/org.kde.plasma.networkmanagement/contents/ui/Toolbar.qml
-%{_datadir}/plasma/plasmoids/org.kde.plasma.networkmanagement/contents/ui/main.qml
-%{_datadir}/plasma/plasmoids/org.kde.plasma.networkmanagement/metadata.desktop
+#%%dir %{_datadir}/plasma/plasmoids/org.kde.plasma.networkmanagement/contents
+#%%dir %{_datadir}/plasma/plasmoids/org.kde.plasma.networkmanagement/contents/ui
+
+#%%{_datadir}/plasma/plasmoids/org.kde.plasma.networkmanagement/contents/ui/CompactRepresentation.qml
+#%%{_datadir}/plasma/plasmoids/org.kde.plasma.networkmanagement/contents/ui/ConnectionItem.qml
+#%%{_datadir}/plasma/plasmoids/org.kde.plasma.networkmanagement/contents/ui/Header.qml
+#%%{_datadir}/plasma/plasmoids/org.kde.plasma.networkmanagement/contents/ui/PopupDialog.qml
+#%%{_datadir}/plasma/plasmoids/org.kde.plasma.networkmanagement/contents/ui/SwitchButton.qml
+#%%{_datadir}/plasma/plasmoids/org.kde.plasma.networkmanagement/contents/ui/Toolbar.qml
+#%%{_datadir}/plasma/plasmoids/org.kde.plasma.networkmanagement/contents/ui/main.qml
+#%%{_datadir}/plasma/plasmoids/org.kde.plasma.networkmanagement/metadata.desktop
 
 %{_libdir}/qt5/plugins/kcm_networkmanagement.so
 %{_libdir}/qt5/plugins/libplasmanetworkmanagement_fortisslvpnui.so
@@ -140,12 +141,14 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/kservices5/plasmanetworkmanagement_iodineui.desktop
 %{_datadir}/kservices5/plasmanetworkmanagement_openconnect_juniperui.desktop
 %{_datadir}/metainfo/org.kde.plasma.networkmanagement.appdata.xml
-%dir %{_datadir}/plasma/plasmoids/org.kde.plasma.networkmanagement/contents/config
-%{_datadir}/plasma/plasmoids/org.kde.plasma.networkmanagement/contents/config/config.qml
-%{_datadir}/plasma/plasmoids/org.kde.plasma.networkmanagement/contents/config/main.xml
-%{_datadir}/plasma/plasmoids/org.kde.plasma.networkmanagement/contents/ui/DetailsText.qml
-%{_datadir}/plasma/plasmoids/org.kde.plasma.networkmanagement/contents/ui/PasswordField.qml
-%{_datadir}/plasma/plasmoids/org.kde.plasma.networkmanagement/contents/ui/Separator.qml
-%{_datadir}/plasma/plasmoids/org.kde.plasma.networkmanagement/contents/ui/TrafficMonitor.qml
-%{_datadir}/plasma/plasmoids/org.kde.plasma.networkmanagement/contents/ui/configGeneral.qml
+#%%dir %{_datadir}/plasma/plasmoids/org.kde.plasma.networkmanagement/contents/config
+#%%{_datadir}/plasma/plasmoids/org.kde.plasma.networkmanagement/contents/config/config.qml
+#%%{_datadir}/plasma/plasmoids/org.kde.plasma.networkmanagement/contents/config/main.xml
+#%%{_datadir}/plasma/plasmoids/org.kde.plasma.networkmanagement/contents/ui/DetailsText.qml
+#%%{_datadir}/plasma/plasmoids/org.kde.plasma.networkmanagement/contents/ui/PasswordField.qml
+#%%{_datadir}/plasma/plasmoids/org.kde.plasma.networkmanagement/contents/ui/Separator.qml
+#%%{_datadir}/plasma/plasmoids/org.kde.plasma.networkmanagement/contents/ui/TrafficMonitor.qml
+#%%{_datadir}/plasma/plasmoids/org.kde.plasma.networkmanagement/contents/ui/configGeneral.qml
+#%%{_datadir}/plasma/plasmoids/org.kde.plasma.networkmanagement/metadata.json
+%{_datadir}/plasma/plasmoids/org.kde.plasma.networkmanagement/contents.rcc
 %{_datadir}/plasma/plasmoids/org.kde.plasma.networkmanagement/metadata.json
