@@ -1,16 +1,16 @@
-%define		kdeplasmaver	5.14.5
+%define		kdeplasmaver	5.15.3
 %define		qtver		5.9.0
 %define		kpname		plasma-nm
 %define		kf5ver		5.39.0
 
 Summary:	plasma-nm
 Name:		kp5-%{kpname}
-Version:	5.14.5
+Version:	5.15.3
 Release:	1
 License:	LGPL v2.1+
 Group:		X11/Libraries
 Source0:	http://download.kde.org/stable/plasma/%{kdeplasmaver}/%{kpname}-%{version}.tar.xz
-# Source0-md5:	e19e53b95983097399f267ca870f2781
+# Source0-md5:	46492d319950a48f3a192f1d883a4020
 URL:		http://www.kde.org/
 BuildRequires:	Qt5Core-devel >= %{qtver}
 BuildRequires:	cmake >= 2.8.12
@@ -47,6 +47,7 @@ BuildRequires:	kf5-modemmanager-qt-devel
 BuildRequires:	kf5-networkmanager-qt-devel
 BuildRequires:	kf5-plasma-framework-devel
 BuildRequires:	kf5-solid-devel
+BuildRequires:	ninja
 BuildRequires:	openconnect-devel >= 3.99
 BuildRequires:	pkgconfig
 BuildRequires:	qca-qt5-devel >= 2.1.1
@@ -65,16 +66,14 @@ Plasma applet written in QML for managing network connections.
 %build
 install -d build
 cd build
-%cmake \
+%cmake -G Ninja \
 	-DKDE_INSTALL_USE_QT_SYS_PATHS=ON \
 	../
-%{__make}
+%ninja_build
 
 %install
 rm -rf $RPM_BUILD_ROOT
-
-%{__make} -C build/ install \
-        DESTDIR=$RPM_BUILD_ROOT
+%ninja_install -C build
 
 %find_lang %{kpname} --all-name --with-kde
 
@@ -126,9 +125,9 @@ rm -rf $RPM_BUILD_ROOT
 #%%{_datadir}/plasma/plasmoids/org.kde.plasma.networkmanagement/contents/ui/main.qml
 #%%{_datadir}/plasma/plasmoids/org.kde.plasma.networkmanagement/metadata.desktop
 
-%{_libdir}/qt5/plugins/kcm_networkmanagement.so
-%{_libdir}/qt5/plugins/libplasmanetworkmanagement_fortisslvpnui.so
-%{_libdir}/qt5/plugins/libplasmanetworkmanagement_iodineui.so
+%attr(755,root,root) %{_libdir}/qt5/plugins/kcm_networkmanagement.so
+%attr(755,root,root) %{_libdir}/qt5/plugins/libplasmanetworkmanagement_fortisslvpnui.so
+%attr(755,root,root) %{_libdir}/qt5/plugins/libplasmanetworkmanagement_iodineui.so
 %dir %{_datadir}/kcm_networkmanagement
 %dir %{_datadir}/kcm_networkmanagement/qml
 %{_datadir}/kcm_networkmanagement/qml/ConnectionItem.qml
@@ -152,3 +151,5 @@ rm -rf $RPM_BUILD_ROOT
 #%%{_datadir}/plasma/plasmoids/org.kde.plasma.networkmanagement/metadata.json
 %{_datadir}/plasma/plasmoids/org.kde.plasma.networkmanagement/contents.rcc
 %{_datadir}/plasma/plasmoids/org.kde.plasma.networkmanagement/metadata.json
+%attr(755,root,root) %{_libdir}/qt5/plugins/libplasmanetworkmanagement_wireguardui.so
+%{_datadir}/kservices5/plasmanetworkmanagement_wireguardui.desktop
