@@ -1,30 +1,29 @@
-%define		kdeplasmaver	5.15.3
+%define		kdeplasmaver	5.21.2
 %define		qtver		5.9.0
 %define		kpname		plasma-nm
 %define		kf5ver		5.39.0
 
 Summary:	plasma-nm
 Name:		kp5-%{kpname}
-Version:	5.15.3
+Version:	5.21.2
 Release:	1
 License:	LGPL v2.1+
 Group:		X11/Libraries
 Source0:	http://download.kde.org/stable/plasma/%{kdeplasmaver}/%{kpname}-%{version}.tar.xz
-# Source0-md5:	46492d319950a48f3a192f1d883a4020
+# Source0-md5:	03a4b21f9da1b98fd7d48a79a2e575e3
 URL:		http://www.kde.org/
 BuildRequires:	Qt5Core-devel >= %{qtver}
 BuildRequires:	cmake >= 2.8.12
 
+BuildRequires:	NetworkManager-devel
 BuildRequires:	Qt5DBus-devel >= %{qtver}
 BuildRequires:	Qt5Gui-devel >= %{qtver}
 BuildRequires:	Qt5Network-devel >= %{qtver}
 BuildRequires:	Qt5Qml-devel >= %{qtver}
 BuildRequires:	Qt5Quick-devel >= %{qtver}
 BuildRequires:	Qt5Test-devel >= %{qtver}
-BuildRequires:	Qt5Xml-devel >= %{qtver}
-
-BuildRequires:	NetworkManager-devel
 BuildRequires:	Qt5Widgets-devel >= %{qtver}
+BuildRequires:	Qt5Xml-devel >= %{qtver}
 BuildRequires:	gettext-devel
 BuildRequires:	kf5-kcompletion-devel
 BuildRequires:	kf5-kconfigwidgets-devel
@@ -68,6 +67,7 @@ install -d build
 cd build
 %cmake -G Ninja \
 	-DKDE_INSTALL_USE_QT_SYS_PATHS=ON \
+	-DHTML_INSTALL_DIR=%{_kdedocdir} \
 	../
 %ninja_build
 
@@ -113,25 +113,13 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/kservices5/plasmanetworkmanagement_vpncui.desktop
 %{_datadir}/kservicetypes5/plasma-networkmanagement-vpnuiplugin.desktop
 %dir %{_datadir}/plasma/plasmoids/org.kde.plasma.networkmanagement
-#%%dir %{_datadir}/plasma/plasmoids/org.kde.plasma.networkmanagement/contents
-#%%dir %{_datadir}/plasma/plasmoids/org.kde.plasma.networkmanagement/contents/ui
-
-#%%{_datadir}/plasma/plasmoids/org.kde.plasma.networkmanagement/contents/ui/CompactRepresentation.qml
-#%%{_datadir}/plasma/plasmoids/org.kde.plasma.networkmanagement/contents/ui/ConnectionItem.qml
-#%%{_datadir}/plasma/plasmoids/org.kde.plasma.networkmanagement/contents/ui/Header.qml
-#%%{_datadir}/plasma/plasmoids/org.kde.plasma.networkmanagement/contents/ui/PopupDialog.qml
-#%%{_datadir}/plasma/plasmoids/org.kde.plasma.networkmanagement/contents/ui/SwitchButton.qml
-#%%{_datadir}/plasma/plasmoids/org.kde.plasma.networkmanagement/contents/ui/Toolbar.qml
-#%%{_datadir}/plasma/plasmoids/org.kde.plasma.networkmanagement/contents/ui/main.qml
-#%%{_datadir}/plasma/plasmoids/org.kde.plasma.networkmanagement/metadata.desktop
-
 %attr(755,root,root) %{_libdir}/qt5/plugins/kcm_networkmanagement.so
 %attr(755,root,root) %{_libdir}/qt5/plugins/libplasmanetworkmanagement_fortisslvpnui.so
 %attr(755,root,root) %{_libdir}/qt5/plugins/libplasmanetworkmanagement_iodineui.so
 %dir %{_datadir}/kcm_networkmanagement
 %dir %{_datadir}/kcm_networkmanagement/qml
 %{_datadir}/kcm_networkmanagement/qml/ConnectionItem.qml
-%{_datadir}/kcm_networkmanagement/qml/Dialog.qml
+
 %{_datadir}/kcm_networkmanagement/qml/Header.qml
 %{_datadir}/kcm_networkmanagement/qml/ListItem.qml
 %{_datadir}/kcm_networkmanagement/qml/main.qml
@@ -140,16 +128,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/kservices5/plasmanetworkmanagement_iodineui.desktop
 %{_datadir}/kservices5/plasmanetworkmanagement_openconnect_juniperui.desktop
 %{_datadir}/metainfo/org.kde.plasma.networkmanagement.appdata.xml
-#%%dir %{_datadir}/plasma/plasmoids/org.kde.plasma.networkmanagement/contents/config
-#%%{_datadir}/plasma/plasmoids/org.kde.plasma.networkmanagement/contents/config/config.qml
-#%%{_datadir}/plasma/plasmoids/org.kde.plasma.networkmanagement/contents/config/main.xml
-#%%{_datadir}/plasma/plasmoids/org.kde.plasma.networkmanagement/contents/ui/DetailsText.qml
-#%%{_datadir}/plasma/plasmoids/org.kde.plasma.networkmanagement/contents/ui/PasswordField.qml
-#%%{_datadir}/plasma/plasmoids/org.kde.plasma.networkmanagement/contents/ui/Separator.qml
-#%%{_datadir}/plasma/plasmoids/org.kde.plasma.networkmanagement/contents/ui/TrafficMonitor.qml
-#%%{_datadir}/plasma/plasmoids/org.kde.plasma.networkmanagement/contents/ui/configGeneral.qml
-#%%{_datadir}/plasma/plasmoids/org.kde.plasma.networkmanagement/metadata.json
 %{_datadir}/plasma/plasmoids/org.kde.plasma.networkmanagement/contents.rcc
 %{_datadir}/plasma/plasmoids/org.kde.plasma.networkmanagement/metadata.json
-%attr(755,root,root) %{_libdir}/qt5/plugins/libplasmanetworkmanagement_wireguardui.so
-%{_datadir}/kservices5/plasmanetworkmanagement_wireguardui.desktop
+%{_datadir}/kservices5/plasmanetworkmanagement_openconnect_globalprotectui.desktop
+%{_datadir}/kcm_networkmanagement/qml/AddConnectionDialog.qml
+%{_datadir}/kcm_networkmanagement/qml/ConfigurationDialog.qml
+%{_datadir}/kservices5/plasmanetworkmanagement_openconnect_pulseui.desktop
