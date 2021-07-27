@@ -1,16 +1,16 @@
-%define		kdeplasmaver	5.22.3
+%define		kdeplasmaver	5.22.4
 %define		qtver		5.9.0
 %define		kpname		plasma-nm
 %define		kf5ver		5.39.0
 
 Summary:	plasma-nm
 Name:		kp5-%{kpname}
-Version:	5.22.3
+Version:	5.22.4
 Release:	1
 License:	LGPL v2.1+
 Group:		X11/Libraries
 Source0:	http://download.kde.org/stable/plasma/%{kdeplasmaver}/%{kpname}-%{version}.tar.xz
-# Source0-md5:	54eabe4d2fea9b0fc0447c62983b8284
+# Source0-md5:	61c7fc4c00637715e8d0c4491298b5b7
 URL:		http://www.kde.org/
 BuildRequires:	Qt5Core-devel >= %{qtver}
 BuildRequires:	cmake >= 2.8.12
@@ -101,7 +101,6 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/qt5/qml/org/kde/plasma/networkmanagement/libplasmanm_qmlplugins.so
 %{_libdir}/qt5/qml/org/kde/plasma/networkmanagement/qmldir
 %{_datadir}/knotifications5/networkmanagement.notifyrc
-%{_datadir}/kservices5/plasma-applet-org.kde.plasma.networkmanagement.desktop
 %{_datadir}/kservices5/plasmanetworkmanagement_l2tpui.desktop
 %{_datadir}/kservices5/plasmanetworkmanagement_openconnectui.desktop
 %{_datadir}/kservices5/plasmanetworkmanagement_openswanui.desktop
