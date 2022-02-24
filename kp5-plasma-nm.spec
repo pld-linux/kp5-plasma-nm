@@ -1,20 +1,20 @@
-%define		kdeplasmaver	5.24.1
+%define		kdeplasmaver	5.24.2
 %define		qtver		5.9.0
 %define		kpname		plasma-nm
 %define		kf5ver		5.39.0
 
 Summary:	plasma-nm
 Name:		kp5-%{kpname}
-Version:	5.24.1
+Version:	5.24.2
 Release:	1
 License:	LGPL v2.1+
 Group:		X11/Libraries
 Source0:	http://download.kde.org/stable/plasma/%{kdeplasmaver}/%{kpname}-%{version}.tar.xz
-# Source0-md5:	840d038168ea60b82891ea3dced2e8bf
+# Source0-md5:	012a0cb8b495ac5595c4802bc5366623
 URL:		http://www.kde.org/
 BuildRequires:	Qt5Core-devel >= %{qtver}
 BuildRequires:	cmake >= 2.8.12
-
+BuildRequires:	ModemManager-devel
 BuildRequires:	NetworkManager-devel
 BuildRequires:	Qt5DBus-devel >= %{qtver}
 BuildRequires:	Qt5Gui-devel >= %{qtver}
