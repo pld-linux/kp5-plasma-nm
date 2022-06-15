@@ -1,24 +1,23 @@
 #
 # Conditional build:
 %bcond_with	tests		# build with tests
-%define		kdeplasmaver	5.24.5
+%define		kdeplasmaver	5.25.0
 %define		qtver		5.9.0
 %define		kpname		plasma-nm
 %define		kf5ver		5.39.0
 
 Summary:	plasma-nm
 Name:		kp5-%{kpname}
-Version:	5.24.5
+Version:	5.25.0
 Release:	1
 License:	LGPL v2.1+
 Group:		X11/Libraries
-Source0:	http://download.kde.org/stable/plasma/%{kdeplasmaver}/%{kpname}-%{version}.tar.xz
-# Source0-md5:	fad6a3d603afffd3ef8312c58aa810a1
+Source0:	https://download.kde.org/stable/plasma/%{kdeplasmaver}/%{kpname}-%{version}.tar.xz
+# Source0-md5:	e41fc1e29181532ba1bb74414a2ecefb
 URL:		http://www.kde.org/
-BuildRequires:	Qt5Core-devel >= %{qtver}
-BuildRequires:	cmake >= 2.8.12
 BuildRequires:	ModemManager-devel
 BuildRequires:	NetworkManager-devel
+BuildRequires:	Qt5Core-devel >= %{qtver}
 BuildRequires:	Qt5DBus-devel >= %{qtver}
 BuildRequires:	Qt5Gui-devel >= %{qtver}
 BuildRequires:	Qt5Network-devel >= %{qtver}
@@ -27,6 +26,7 @@ BuildRequires:	Qt5Quick-devel >= %{qtver}
 BuildRequires:	Qt5Test-devel >= %{qtver}
 BuildRequires:	Qt5Widgets-devel >= %{qtver}
 BuildRequires:	Qt5Xml-devel >= %{qtver}
+BuildRequires:	cmake >= 2.8.12
 BuildRequires:	gettext-devel
 BuildRequires:	kf5-kcompletion-devel
 BuildRequires:	kf5-kconfigwidgets-devel
@@ -101,31 +101,30 @@ rm -rf $RPM_BUILD_ROOT
 %{_libdir}/qt5/qml/org/kde/plasma/networkmanagement/qmldir
 %{_datadir}/knotifications5/networkmanagement.notifyrc
 %{_datadir}/plasma/plasmoids/org.kde.plasma.networkmanagement
-%attr(755,root,root) %{_libdir}/qt5/plugins/kcm_networkmanagement.so
 %dir %{_datadir}/kcm_networkmanagement
 %dir %{_datadir}/kcm_networkmanagement/qml
 %{_datadir}/kcm_networkmanagement/qml/ConnectionItem.qml
 %{_datadir}/kcm_networkmanagement/qml/ListItem.qml
 %{_datadir}/kcm_networkmanagement/qml/main.qml
-%{_datadir}/kservices5/kcm_networkmanagement.desktop
 %{_datadir}/metainfo/org.kde.plasma.networkmanagement.appdata.xml
 %{_datadir}/kcm_networkmanagement/qml/AddConnectionDialog.qml
 %{_datadir}/kcm_networkmanagement/qml/ConfigurationDialog.qml
 %dir %{_libdir}/qt5/plugins/plasma/network
 %dir %{_libdir}/qt5/plugins/plasma/network/vpn
-%{_libdir}/qt5/plugins/plasma/network/vpn/plasmanetworkmanagement_fortisslvpnui.so
-%{_libdir}/qt5/plugins/plasma/network/vpn/plasmanetworkmanagement_iodineui.so
-%{_libdir}/qt5/plugins/plasma/network/vpn/plasmanetworkmanagement_l2tpui.so
-%{_libdir}/qt5/plugins/plasma/network/vpn/plasmanetworkmanagement_openconnect_anyconnect.so
-%{_libdir}/qt5/plugins/plasma/network/vpn/plasmanetworkmanagement_openconnect_globalprotectui.so
-%{_libdir}/qt5/plugins/plasma/network/vpn/plasmanetworkmanagement_openconnect_juniperui.so
-%{_libdir}/qt5/plugins/plasma/network/vpn/plasmanetworkmanagement_openconnect_pulseui.so
-%{_libdir}/qt5/plugins/plasma/network/vpn/plasmanetworkmanagement_openswanui.so
-%{_libdir}/qt5/plugins/plasma/network/vpn/plasmanetworkmanagement_openvpnui.so
-%{_libdir}/qt5/plugins/plasma/network/vpn/plasmanetworkmanagement_pptpui.so
-%{_libdir}/qt5/plugins/plasma/network/vpn/plasmanetworkmanagement_sshui.so
-%{_libdir}/qt5/plugins/plasma/network/vpn/plasmanetworkmanagement_sstpui.so
-%{_libdir}/qt5/plugins/plasma/network/vpn/plasmanetworkmanagement_strongswanui.so
-%{_libdir}/qt5/plugins/plasma/network/vpn/plasmanetworkmanagement_vpncui.so
-%{_datadir}/kservices5/plasma-applet-org.kde.plasma.networkmanagement.desktop
+%attr(755,root,root) %{_libdir}/qt5/plugins/plasma/network/vpn/plasmanetworkmanagement_fortisslvpnui.so
+%attr(755,root,root) %{_libdir}/qt5/plugins/plasma/network/vpn/plasmanetworkmanagement_iodineui.so
+%attr(755,root,root) %{_libdir}/qt5/plugins/plasma/network/vpn/plasmanetworkmanagement_l2tpui.so
+%attr(755,root,root) %{_libdir}/qt5/plugins/plasma/network/vpn/plasmanetworkmanagement_openconnect_anyconnect.so
+%attr(755,root,root) %{_libdir}/qt5/plugins/plasma/network/vpn/plasmanetworkmanagement_openconnect_globalprotectui.so
+%attr(755,root,root) %{_libdir}/qt5/plugins/plasma/network/vpn/plasmanetworkmanagement_openconnect_juniperui.so
+%attr(755,root,root) %{_libdir}/qt5/plugins/plasma/network/vpn/plasmanetworkmanagement_openconnect_pulseui.so
+%attr(755,root,root) %{_libdir}/qt5/plugins/plasma/network/vpn/plasmanetworkmanagement_openvpnui.so
+%attr(755,root,root) %{_libdir}/qt5/plugins/plasma/network/vpn/plasmanetworkmanagement_pptpui.so
+%attr(755,root,root) %{_libdir}/qt5/plugins/plasma/network/vpn/plasmanetworkmanagement_sshui.so
+%attr(755,root,root) %{_libdir}/qt5/plugins/plasma/network/vpn/plasmanetworkmanagement_sstpui.so
+%attr(755,root,root) %{_libdir}/qt5/plugins/plasma/network/vpn/plasmanetworkmanagement_strongswanui.so
+%attr(755,root,root) %{_libdir}/qt5/plugins/plasma/network/vpn/plasmanetworkmanagement_vpncui.so
 %{_datadir}/qlogging-categories5/plasma-nm.categories
+%attr(755,root,root) %{_libdir}/qt5/plugins/plasma/kcms/systemsettings_qwidgets/kcm_networkmanagement.so
+%attr(755,root,root) %{_libdir}/qt5/plugins/plasma/network/vpn/plasmanetworkmanagement_libreswanui.so
+%{_desktopdir}/kcm_networkmanagement.desktop
