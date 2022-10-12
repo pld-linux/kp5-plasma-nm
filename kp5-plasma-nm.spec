@@ -1,19 +1,19 @@
 #
 # Conditional build:
 %bcond_with	tests		# build with tests
-%define		kdeplasmaver	5.25.5
+%define		kdeplasmaver	5.26.0
 %define		qtver		5.15.2
 %define		kpname		plasma-nm
 %define		kf5ver		5.39.0
 
 Summary:	plasma-nm
 Name:		kp5-%{kpname}
-Version:	5.25.5
-Release:	2
+Version:	5.26.0
+Release:	1
 License:	LGPL v2.1+
 Group:		X11/Libraries
 Source0:	https://download.kde.org/stable/plasma/%{kdeplasmaver}/%{kpname}-%{version}.tar.xz
-# Source0-md5:	72fa3b19856d99920e23a0893231a2df
+# Source0-md5:	fefeffc684356490d5beda107422c912
 URL:		http://www.kde.org/
 BuildRequires:	ModemManager-devel
 BuildRequires:	NetworkManager-devel
@@ -128,3 +128,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/qt5/plugins/plasma/kcms/systemsettings_qwidgets/kcm_networkmanagement.so
 %attr(755,root,root) %{_libdir}/qt5/plugins/plasma/network/vpn/plasmanetworkmanagement_libreswanui.so
 %{_desktopdir}/kcm_networkmanagement.desktop
+
+%attr(755,root,root) %{_libdir}/qt5/plugins/plasma/network/vpn/plasmanetworkmanagement_openconnect_arrayui.so
+%attr(755,root,root) %{_libdir}/qt5/plugins/plasma/network/vpn/plasmanetworkmanagement_openconnect_f5ui.so
+%attr(755,root,root) %{_libdir}/qt5/plugins/plasma/network/vpn/plasmanetworkmanagement_openconnect_fortinetui.so
