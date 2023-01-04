@@ -1,19 +1,19 @@
 #
 # Conditional build:
 %bcond_with	tests		# build with tests
-%define		kdeplasmaver	5.26.4
+%define		kdeplasmaver	5.26.5
 %define		qtver		5.15.2
 %define		kpname		plasma-nm
 %define		kf5ver		5.39.0
 
 Summary:	plasma-nm
 Name:		kp5-%{kpname}
-Version:	5.26.4
+Version:	5.26.5
 Release:	1
 License:	LGPL v2.1+
 Group:		X11/Libraries
 Source0:	https://download.kde.org/stable/plasma/%{kdeplasmaver}/%{kpname}-%{version}.tar.xz
-# Source0-md5:	9b0fa4a7b7285c0eaaecc8f2cf4991b5
+# Source0-md5:	adb5371f4383332da2d7bdc643d1ba3d
 URL:		http://www.kde.org/
 BuildRequires:	ModemManager-devel
 BuildRequires:	NetworkManager-devel
